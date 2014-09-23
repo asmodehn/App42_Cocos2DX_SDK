@@ -135,7 +135,7 @@ namespace App42
 	}
 
 
-	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -209,7 +209,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -284,7 +284,7 @@ namespace App42
 	}
 
 
-	void StorageService::FindAllCollections(const char* dbName,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindAllCollections(const char* dbName, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -342,7 +342,7 @@ namespace App42
 		Util::executeGet(encodedUrl,headers, std::bind(&App42StorageResponse::onComplete, response, std::placeholders::_1, std::placeholders::_2));
 	}
 
-	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -407,7 +407,7 @@ namespace App42
 
 	}
 
-	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName,int max, int offset,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName, int max, int offset, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -475,7 +475,7 @@ namespace App42
 	}
 
 
-	void StorageService::FindAllDocumentsCount(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindAllDocumentsCount(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -539,7 +539,7 @@ namespace App42
     
 	}
 
-	void StorageService::FindDocumentById(const char* dbName, const char* collectionName, const char* docId,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocumentById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
 		printf("Docid = %s",docId);
@@ -607,12 +607,12 @@ namespace App42
 
 	}
 
-	void StorageService::FindDocumentByQuery(const char* dbName, const char* collectionName, Query *query,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocumentByQuery(const char* dbName, const char* collectionName, Query *query, SEL_App42CallFuncND pSelector)
 	{
 		FindDocumentsByQuery(dbName, collectionName, query, pSelector);
 	}
 
-	void StorageService::FindDocumentsByQuery(const char* dbName, const char* collectionName, Query *query,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocumentsByQuery(const char* dbName, const char* collectionName, Query *query, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -686,7 +686,7 @@ namespace App42
     
 	}
 
-	void StorageService::FindDocumentsByQueryWithPaging(const char* dbName, const char* collectionName, Query *query, int max, int offset,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocumentsByQueryWithPaging(const char* dbName, const char* collectionName, Query *query, int max, int offset, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -765,7 +765,7 @@ namespace App42
 	}
 
 
-	void StorageService::FindDocsWithQueryPagingOrderBy(const char* dbName, const char* collectionName, Query *query, int max, int offset,const char* orderByKey,const char* orderByType,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocsWithQueryPagingOrderBy(const char* dbName, const char* collectionName, Query *query, int max, int offset, const char* orderByKey, const char* orderByType,  SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -851,7 +851,7 @@ namespace App42
     
 	}
 
-	void StorageService::FindDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key,const char* value,  SEL_App42CallFuncND pSelector)
+	void StorageService::FindDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -860,8 +860,6 @@ namespace App42
 			Util::throwExceptionIfStringNullOrBlank(dbName, "Database Name");
 			Util::throwExceptionIfStringNullOrBlank(collectionName, "Collection Name");
 			Util::throwExceptionIfStringNullOrBlank(key, "Key");
-			Util::throwExceptionIfStringNullOrBlank(value, "Value");
-
 			Util::throwExceptionIfCallBackIsNull(pSelector, "Callback");
 		}
 		catch (App42Exception *e)
@@ -924,7 +922,7 @@ namespace App42
 	}
 
 
-	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId,const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -994,7 +992,7 @@ namespace App42
 	}
 
 
-	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId,App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId,App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1063,7 +1061,7 @@ namespace App42
 		Util::executePut(encodedUrl, headers, storageBody.c_str(), std::bind(&App42StorageResponse::onComplete, response, std::placeholders::_1, std::placeholders::_2));
 	}
 
-	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key,const char* value,const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1137,7 +1135,7 @@ namespace App42
 		Util::executePut(encodedUrl, headers, storageBody.c_str(), std::bind(&App42StorageResponse::onComplete, response, std::placeholders::_1, std::placeholders::_2));
 	}
 
-	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key,const char* value,App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1212,7 +1210,7 @@ namespace App42
 	}
 
 
-	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key,const char* value,const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1284,7 +1282,7 @@ namespace App42
 		Util::executePut(encodedUrl, headers, storageBody.c_str(), std::bind(&App42StorageResponse::onComplete, response, std::placeholders::_1, std::placeholders::_2));
 	}
 
-	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key,const char* value,App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1359,7 +1357,7 @@ namespace App42
 
 
 
-	void StorageService::DeleteDocumentsById(const char* dbName, const char* collectionName, const char* docId,  SEL_App42CallFuncND pSelector)
+	void StorageService::DeleteDocumentsById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1427,7 +1425,7 @@ namespace App42
     
 	}
 
-	void StorageService::DeleteDocumentsByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value,  SEL_App42CallFuncND pSelector)
+	void StorageService::DeleteDocumentsByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1513,7 +1511,7 @@ namespace App42
     
 	}
 
-	void StorageService::DeleteAllDocuments(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector)
+	void StorageService::DeleteAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1577,7 +1575,7 @@ namespace App42
     
 	}
 
-	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId,const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1653,7 +1651,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId,App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1728,7 +1726,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query,const char* json,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, const char* json, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1801,7 +1799,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, App42Object *app42Object,  SEL_App42CallFuncND pSelector)
+	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1874,8 +1872,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::GrantAccessOnDoc(const char* dbName, const char* collectionName,
-						  const char* docId, vector<ACL> aclList,  SEL_App42CallFuncND pSelector)
+	void StorageService::GrantAccessOnDoc(const char* dbName, const char* collectionName, const char* docId, vector<ACL> aclList, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     
@@ -1955,8 +1952,7 @@ namespace App42
 		}
 	}
 
-	void StorageService::RevokeAccessOnDoc(const char* dbName, const char* collectionName,
-						   const char* docId, vector<ACL> aclList,  SEL_App42CallFuncND pSelector)
+	void StorageService::RevokeAccessOnDoc(const char* dbName, const char* collectionName, const char* docId, vector<ACL> aclList, SEL_App42CallFuncND pSelector)
 	{
 		App42StorageResponse *response = new App42StorageResponse(pSelector);
     

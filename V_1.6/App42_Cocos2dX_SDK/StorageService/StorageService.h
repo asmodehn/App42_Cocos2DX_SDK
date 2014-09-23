@@ -45,57 +45,57 @@ namespace App42
 		 */
 		static StorageService* getInstance();
 
-		void InsertJsonDocument(const char* dbName, const char* collectionName, const char* json,  SEL_App42CallFuncND pSelector);
+		void InsertJsonDocument(const char* dbName, const char* collectionName, const char* json, SEL_App42CallFuncND pSelector);
 
-		void InsertJsonDocument(const char* dbName, const char* collectionName, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void InsertJsonDocument(const char* dbName, const char* collectionName, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
 
-		void FindAllCollections(const char* dbName,  SEL_App42CallFuncND pSelector);
+		void FindAllCollections(const char* dbName, SEL_App42CallFuncND pSelector);
 
-		void FindAllDocuments(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector);
+		void FindAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector);
 
-		void FindAllDocuments(const char* dbName, const char* collectionName, int max, int offset,  SEL_App42CallFuncND pSelector);
+		void FindAllDocuments(const char* dbName, const char* collectionName, int max, int offset, SEL_App42CallFuncND pSelector);
 
-		void FindAllDocumentsCount(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector);
+		void FindAllDocumentsCount(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector);
 
-		void FindDocumentById(const char* dbName, const char* collectionName, const char* docId,  SEL_App42CallFuncND pSelector);
+		void FindDocumentById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector);
 
 		//Deprecated---Use "FindDocumentsByQuery"
-		void FindDocumentByQuery(const char* dbName, const char* collectionName, Query *query,  SEL_App42CallFuncND pSelector);
+		void FindDocumentByQuery(const char* dbName, const char* collectionName, Query *query, SEL_App42CallFuncND pSelector);
 
-		void FindDocumentsByQuery(const char* dbName, const char* collectionName, Query *query,  SEL_App42CallFuncND pSelector);
+		void FindDocumentsByQuery(const char* dbName, const char* collectionName, Query *query, SEL_App42CallFuncND pSelector);
 
-		void FindDocumentsByQueryWithPaging(const char* dbName, const char* collectionName, Query *query, int max, int offset,  SEL_App42CallFuncND pSelector);
+		void FindDocumentsByQueryWithPaging(const char* dbName, const char* collectionName, Query *query, int max, int offset, SEL_App42CallFuncND pSelector);
 
-		void FindDocsWithQueryPagingOrderBy(const char* dbName, const char* collectionName, Query *query, int max, int offset, const char* orderByKey, const char* orderByType,  SEL_App42CallFuncND pSelector);
+		void FindDocsWithQueryPagingOrderBy(const char* dbName, const char* collectionName, Query *query, int max, int offset, const char* orderByKey, const char* orderByType, SEL_App42CallFuncND pSelector);
 
-		void FindDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value,  SEL_App42CallFuncND pSelector);
+		void FindDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, const char* newJsonDoc,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, const char* newJsonDoc, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
-		void SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json,  SEL_App42CallFuncND pSelector);
+		void SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector);
 
-		void SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
-		void DeleteDocumentsById(const char* dbName, const char* collectionName, const char* docId,  SEL_App42CallFuncND pSelector);
+		void DeleteDocumentsById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector);
 
-		void DeleteDocumentsByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value,  SEL_App42CallFuncND pSelector);
+		void DeleteDocumentsByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector);
 
-		void DeleteAllDocuments(const char* dbName, const char* collectionName,  SEL_App42CallFuncND pSelector);
+		void DeleteAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector);
 
-		void AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, const char* json,  SEL_App42CallFuncND pSelector);
+		void AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, const char* json, SEL_App42CallFuncND pSelector);
 
-		void AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, const char* json,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, const char* json, SEL_App42CallFuncND pSelector);
 
-		void UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, App42Object *app42Object,  SEL_App42CallFuncND pSelector);
+		void UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, App42Object *app42Object, SEL_App42CallFuncND pSelector);
 
 		/**
 		 *
