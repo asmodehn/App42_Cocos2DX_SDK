@@ -25,6 +25,7 @@ namespace App42
 		static Query* BuildQuery(const char* key, const char* value, const char* op);
 		static Query* BuildQuery(const char* key, std::vector<std::string> value, const char* op);
 		static Query* BuildQuery(const char* key, int value, const char* op);
+		static Query* BuildQuery(const char* key, bool value, const char* op);
 
 		static Query* CompoundOperator(Query *q1, const char* op, Query *q2);
 		static Query* SetLoggedInUser(const char* logged);

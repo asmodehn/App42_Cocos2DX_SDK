@@ -97,6 +97,32 @@ namespace App42
 		return query;
 	}
 
+	Query* QueryBuilder::BuildQuery(const char* key, bool value, const char* op)
+	{
+		try
+		{
+			Util::throwExceptionIfStringNullOrBlank(key, "Key");
+			Util::throwExceptionIfStringNullOrBlank(op, "Operator");
+		}
+		catch (App42Exception *e)
+		{
+			throw e;
+		}
+
+		Query *query = NULL;
+
+		cJSON *jsonObject = cJSON_CreateObject();
+		cJSON_AddStringToObject(jsonObject, "key", key);
+		if (value)
+			cJSON_AddTrueToObject(jsonObject, "value");
+		else
+			cJSON_AddFalseToObject(jsonObject, "value");
+		cJSON_AddStringToObject(jsonObject, "operator", op);
+
+		query = new Query(jsonObject);
+		return query;
+	}
+
 	Query* QueryBuilder::CompoundOperator(Query *q1, const char* op, Query *q2)
 	{
 		try
