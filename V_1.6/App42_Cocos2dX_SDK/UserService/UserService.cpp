@@ -741,7 +741,7 @@ namespace App42
 
 	void UserService::Authenticate(const char *username, const char *password,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -760,7 +760,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -804,7 +804,7 @@ namespace App42
 
 	void UserService::GetUser(const char *userName,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -821,7 +821,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -866,7 +866,7 @@ namespace App42
 
 	void UserService::GetUserByEmailId(const char *emailId,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -883,7 +883,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -927,7 +927,7 @@ namespace App42
 
 	void UserService::GetAllUsers( SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -943,7 +943,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -984,7 +984,7 @@ namespace App42
 
 	void UserService::GetAllUsers(int max, int offset,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1001,7 +1001,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1050,7 +1050,7 @@ namespace App42
 
 	void UserService::GetAllUsersCount( SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1066,7 +1066,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1111,7 +1111,7 @@ namespace App42
 
 	void UserService::LockUser(const char *username,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1128,7 +1128,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1173,7 +1173,7 @@ namespace App42
 
 	void UserService::UnlockUser(const char *username,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1190,7 +1190,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1235,7 +1235,7 @@ namespace App42
 
 	void UserService::GetLockedUsers( SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1251,7 +1251,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1297,7 +1297,7 @@ namespace App42
 
 	void UserService::GetLockedUsers(int max, int offset,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1314,7 +1314,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1364,7 +1364,7 @@ namespace App42
 
 	void UserService::GetLockedUsersCount( SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1380,7 +1380,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1426,7 +1426,7 @@ namespace App42
 
 	void UserService::UpdateEmail(const char *username,const char *emailAddress,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1444,7 +1444,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1488,7 +1488,7 @@ namespace App42
 
 	void UserService::DeleteUser(const char *username,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1505,7 +1505,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1548,7 +1548,7 @@ namespace App42
 
 	void UserService::ChangeUserPassword(const char *username, const char *oldPassword, const char *newPassword,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1567,7 +1567,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1612,7 +1612,7 @@ namespace App42
 
 	void UserService::ResetUserPassword(const char *username,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1629,7 +1629,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1675,7 +1675,7 @@ namespace App42
 
 	void UserService::createOrUpdateProfile(App42User *user,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1692,7 +1692,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1737,7 +1737,7 @@ namespace App42
 
 	void UserService::GetUsersByProfileData(App42UserProfile *profileData, SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1754,7 +1754,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1798,7 +1798,7 @@ namespace App42
 
 	void UserService::Logout(const char *sessionId, SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1815,7 +1815,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1860,7 +1860,7 @@ namespace App42
 
 	void UserService::GetRolesByUser(const char *userName, SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1877,7 +1877,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1921,7 +1921,7 @@ namespace App42
 
 	void UserService::GetUsersByRole(const char *role,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -1938,7 +1938,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1982,7 +1982,7 @@ namespace App42
 
 	void UserService::RevokeRole(const char *userName, const char *role,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -2000,7 +2000,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -2046,7 +2046,7 @@ namespace App42
 
 	void UserService::RevokeAllRoles(const char *userName,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -2063,7 +2063,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -2108,7 +2108,7 @@ namespace App42
 
 	void UserService::GetUsersByGroup(vector<string> users,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -2125,7 +2125,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -2175,7 +2175,7 @@ namespace App42
 
 	void UserService::CreateUserWithProfile(const char *userName, const char *password, const char *emailAddress, App42UserProfile *profile,  SEL_App42CallFuncND pSelector)
 	{
-		App42UserResponse *response = new App42UserResponse(pSelector);
+		std::shared_ptr<App42UserResponse> response = std::make_shared<App42UserResponse>(pSelector);
     
 		try
 		{
@@ -2194,7 +2194,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;

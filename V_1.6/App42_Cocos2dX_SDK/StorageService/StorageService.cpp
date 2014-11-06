@@ -137,7 +137,7 @@ namespace App42
 
 	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -156,7 +156,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -211,7 +211,7 @@ namespace App42
 
 	void StorageService::InsertJsonDocument(const char* dbName, const char* collectionName, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -230,7 +230,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -286,7 +286,7 @@ namespace App42
 
 	void StorageService::FindAllCollections(const char* dbName, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -303,7 +303,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -344,7 +344,7 @@ namespace App42
 
 	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -362,7 +362,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -409,7 +409,7 @@ namespace App42
 
 	void StorageService::FindAllDocuments(const char* dbName, const char* collectionName, int max, int offset, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -427,7 +427,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -477,7 +477,7 @@ namespace App42
 
 	void StorageService::FindAllDocumentsCount(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -495,7 +495,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -541,7 +541,7 @@ namespace App42
 
 	void StorageService::FindDocumentById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
 		printf("Docid = %s",docId);
 		try
 		{
@@ -560,7 +560,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -614,7 +614,7 @@ namespace App42
 
 	void StorageService::FindDocumentsByQuery(const char* dbName, const char* collectionName, Query *query, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -632,7 +632,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -688,7 +688,7 @@ namespace App42
 
 	void StorageService::FindDocumentsByQueryWithPaging(const char* dbName, const char* collectionName, Query *query, int max, int offset, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -707,7 +707,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -767,7 +767,7 @@ namespace App42
 
 	void StorageService::FindDocsWithQueryPagingOrderBy(const char* dbName, const char* collectionName, Query *query, int max, int offset, const char* orderByKey, const char* orderByType,  SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -785,7 +785,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -853,7 +853,7 @@ namespace App42
 
 	void StorageService::FindDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -871,7 +871,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -924,7 +924,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -944,7 +944,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -994,7 +994,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByDocId(const char* dbName, const char* collectionName, const char* docId,App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1014,7 +1014,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1063,7 +1063,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1084,7 +1084,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1137,7 +1137,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1158,7 +1158,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1212,7 +1212,7 @@ namespace App42
 
 	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1233,7 +1233,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1284,7 +1284,7 @@ namespace App42
 
 	void StorageService::SaveOrUpdateDocumentByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1305,7 +1305,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1359,7 +1359,7 @@ namespace App42
 
 	void StorageService::DeleteDocumentsById(const char* dbName, const char* collectionName, const char* docId, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1378,7 +1378,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1427,7 +1427,7 @@ namespace App42
 
 	void StorageService::DeleteDocumentsByKeyValue(const char* dbName, const char* collectionName, const char* key, const char* value, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1447,7 +1447,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1513,7 +1513,7 @@ namespace App42
 
 	void StorageService::DeleteAllDocuments(const char* dbName, const char* collectionName, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1531,7 +1531,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1577,7 +1577,7 @@ namespace App42
 
 	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1596,7 +1596,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1653,7 +1653,7 @@ namespace App42
 
 	void StorageService::AddOrUpdateKeys(const char* dbName, const char* collectionName, const char* docId, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1672,7 +1672,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1728,7 +1728,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, const char* json, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1747,7 +1747,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1801,7 +1801,7 @@ namespace App42
 
 	void StorageService::UpdateDocumentByQuery(const char* dbName, const char* collectionName, Query *query, App42Object *app42Object, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1820,7 +1820,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1874,7 +1874,7 @@ namespace App42
 
 	void StorageService::GrantAccessOnDoc(const char* dbName, const char* collectionName, const char* docId, vector<ACL> aclList, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1895,7 +1895,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -1954,7 +1954,7 @@ namespace App42
 
 	void StorageService::RevokeAccessOnDoc(const char* dbName, const char* collectionName, const char* docId, vector<ACL> aclList, SEL_App42CallFuncND pSelector)
 	{
-		App42StorageResponse *response = new App42StorageResponse(pSelector);
+		std::shared_ptr<App42StorageResponse> response = std::make_shared<App42StorageResponse>(pSelector);
     
 		try
 		{
@@ -1975,7 +1975,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;

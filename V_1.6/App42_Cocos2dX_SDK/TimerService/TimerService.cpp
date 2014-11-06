@@ -124,7 +124,7 @@ namespace App42
 
 	void TimerService::CreateOrUpdateTimer(const char* timerName, long timeInSeconds,  SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -141,7 +141,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -185,7 +185,7 @@ namespace App42
 
 	void TimerService::StartTimer(const char* timerName, const char* userName,  SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -203,7 +203,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -247,7 +247,7 @@ namespace App42
 
 	void TimerService::CancelTimer(const char* timerName, const char* userName,  SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -265,7 +265,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -313,7 +313,7 @@ namespace App42
 
 	void TimerService::IsTimerActive(const char* timerName, const char* userName,  SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -331,7 +331,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -375,7 +375,7 @@ namespace App42
 
 	void TimerService::DeleteTimer(const char* timerName,  SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -392,7 +392,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;
@@ -438,7 +438,7 @@ namespace App42
 	//void TimerService::GetCurrentTime(SEL_App42CallFuncND pSelector)
 	void TimerService::GetCurrentTimeNoWinBase(SEL_App42CallFuncND pSelector)
 	{
-		App42TimerResponse *response = new App42TimerResponse(pSelector);
+		std::shared_ptr<App42TimerResponse> response = std::make_shared<App42TimerResponse>(pSelector);
 
 		try
 		{
@@ -453,7 +453,7 @@ namespace App42
 			response->isSuccess = false;
 			if (pSelector)
 			{
-				pSelector(response);
+				pSelector(response.get());
 			}
 			delete e;
 			e = NULL;

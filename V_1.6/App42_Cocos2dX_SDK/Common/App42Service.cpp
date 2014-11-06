@@ -177,6 +177,7 @@ namespace App42
 			cJSON_AddStringToObject(obj, "dbName", dbName.c_str());
 			cJSON_AddStringToObject(obj, "collectionName", collectionName.c_str());
 			metaHeaderParamsMap["dbCredentials"] = cJSON_PrintUnformatted(obj);
+			cJSON_Delete(obj);
 		}
 
 		std::map<string, string>::iterator it;

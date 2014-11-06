@@ -622,15 +622,9 @@ namespace App42
 				}
 				//printf("\nCallBack Sent\n");
 
-				if (request) {
-					delete request;
-					request = nullptr;
-				}
-
 				if (response)
 				{
-					delete response;
-					response = nullptr;
+					delete response, response = nullptr;
 				}
 
 			}
