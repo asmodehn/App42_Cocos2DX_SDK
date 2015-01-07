@@ -163,7 +163,7 @@ namespace App42
 		char *doc = cJSON_PrintUnformatted(json);
 		//printf("\nJsonDoc=%s",doc);
 		jsonDocument->setJsonDoc(doc);
-		printf("\nJsonDoc=%s\n", jsonDocument->getJsonDoc().c_str());
+		//printf("\nJsonDoc=%s\n", jsonDocument->getJsonDoc().c_str());
 
 		free(doc);
 
