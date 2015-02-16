@@ -24,8 +24,8 @@
 #define cJSON__h
 
 #ifdef __cplusplus
-extern "C"
-{
+//extern "C"
+//{
 #endif
 
 /* cJSON Types: */
@@ -121,7 +121,7 @@ extern void cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *ne
 #define cJSON_AddStringToObject(object,name,s)	cJSON_AddItemToObject(object, name, cJSON_CreateString(s))
 
 #ifdef __cplusplus
-}
+//}
 #endif
 
 #endif
